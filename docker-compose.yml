@@ -30,6 +30,7 @@ services:
       - qdrant
       - elasticsearch
     volumes:
+      - ./data:/app/data
       - ./result:/app/result
     command: ["python", "retrieve.py"]
 

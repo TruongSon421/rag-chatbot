@@ -9,5 +9,4 @@ COPY . /app
 
 RUN chmod +x /app/pipeline.sh
 
-# Default command
 CMD ["/app/pipeline.sh"]

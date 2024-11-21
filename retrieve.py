@@ -24,6 +24,8 @@ class NeuralSearcher:
         payloads = [hit.payload for hit in search_result]
         return payloads
 
+es_client = Elasticsearch(es_host)
+
 qdrant_client = QdrantClient(qdrant_host)
 qdrant_searcher = NeuralSearcher(qdrant_client,qdrant_collection_name)
 
