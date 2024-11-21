@@ -1,4 +1,3 @@
-# Use an official lightweight Python image
 FROM python:3.11
 
 WORKDIR /app
@@ -8,6 +7,7 @@ RUN pip install -r requirements.txt
 
 COPY . /app
 
+RUN chmod +x /app/pipeline.sh
 
 # Default command
-CMD ["python", "retrieve.py"]
+CMD ["/app/pipeline.sh"]
