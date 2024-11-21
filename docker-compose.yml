@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    restart: always
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.0
+    container_name: elasticsearch
+    environment:
+      discovery.type: single-node
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    restart: always
+
+  query_processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: query_processor
+    depends_on:
+      - qdrant
+      - elasticsearch
+    volumes:
+      - ./data:/app/data
+    
+    command: ["python", "retrieve.py"]
+
+volumes:
+  qdrant_storage:

@@ -1,0 +1,10 @@
+torch==2.1.0+cu117
+elasticsearch
+sentence_transformers
+langchain
+llama_index
+langchain_experimental
+numpy
+pandas
+tqdm
+qdrant_client
