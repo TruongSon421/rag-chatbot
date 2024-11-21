@@ -95,6 +95,6 @@ for q in tqdm(public_test.question):
     total_cids.append(set_cids)
     total_final_results.append(final_results)
 
-with open('./predict.txt','w') as f:
+with open('./result/predict.txt','w') as f:
     for qid,ans in tqdm(zip(public_test['qid'],total_cids)):
         f.write(str(qid)+' '+' '.join(list(map(str,list(ans))))+'\n')
