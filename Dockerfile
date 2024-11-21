@@ -1,12 +1,15 @@
+# Sử dụng image Python chính thức nhẹ
 FROM python:3.11
 
+# Thiết lập thư mục làm việc trong container
 WORKDIR /app
 
-COPY requirements.txt /app
+# Sao chép file requirements.txt vào container và cài đặt các phụ thuộc
+COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
-COPY . /app
+# Sao chép toàn bộ mã nguồn vào thư mục làm việc trong container
+COPY . /app/
 
-RUN chmod +x /app/pipeline.sh
-
-CMD ["/app/pipeline.sh"]
+# Chạy các lệnh Python sau khi container được khởi động
+# Docker Compose đã chỉ định các lệnh python trong `command`, không cần thêm CMD ở đây
