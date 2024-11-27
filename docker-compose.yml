@@ -21,3 +21,20 @@ services:
       - "9300:9300"
     restart: always
 
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: document_store
+      MYSQL_USER: tiendoan
+      MYSQL_PASSWORD: tiendoan
+    ports:
+      - "3300:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+volumes:
+  qdrant_storage:
+  mysql_data:
