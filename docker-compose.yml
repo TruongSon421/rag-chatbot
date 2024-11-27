@@ -21,18 +21,3 @@ services:
       - "9300:9300"
     restart: always
 
-  query_processor:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: query_processor
-    depends_on:
-      - qdrant
-      - elasticsearch
-    volumes:
-      - ./data:/app/data
-      - ./result:/app/result
-    command: /bin/bash -c "python get_qdrant_embeds.py && python ingest_data.py && python retrieve.py"
-
-volumes:
-  qdrant_storage:
