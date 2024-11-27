@@ -1,4 +1,4 @@
-torch==2.1.0+cu117
+torch==2.1.0
 elasticsearch
 sentence_transformers
 langchain
@@ -8,3 +8,7 @@ numpy
 pandas
 tqdm
 qdrant_client
+theflow
+libmagic
+openpyxl
+python-magic-bin==0.4.14
