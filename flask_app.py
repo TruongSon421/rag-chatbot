@@ -1,6 +1,6 @@
 import os
 import tempfile
-import shutil  # Import shutil for removing directories
+import shutil  
 from flask import Flask, jsonify, request, render_template
 from elasticsearch import Elasticsearch
 from datetime import datetime

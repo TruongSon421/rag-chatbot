@@ -12,3 +12,4 @@ theflow
 libmagic
 openpyxl
 python-magic-bin==0.4.14
+flask
