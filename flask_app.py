@@ -29,7 +29,7 @@ def get_extractor(file_name: str):
     return map_reader[file_name.split('.')[-1]]
 
 app = Flask(__name__)
-es = Elasticsearch('https://localhost:9200', basic_auth=("elastic", "UOle-KXo9zL3zn8gW-aQ"), verify_certs=False)
+es = Elasticsearch('https://localhost:9200', basic_auth=("elastic", "s45=JAx06vov7LlYopQ_"), verify_certs=False)
 
 def create_index(index_name='documents'):
     if not es.indices.exists(index=index_name):
