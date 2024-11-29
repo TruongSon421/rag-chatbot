@@ -54,7 +54,8 @@
             const files = document.getElementById('files').files;
             const topic = document.getElementById('topic').value;
             const formData = new FormData();
-
+            console.log('files',files)
+            console.log('topic',topic)
             for (let i = 0; i < files.length; i++) {
                 formData.append('files', files[i]);
             }
@@ -74,7 +75,6 @@
             }
         });
 
-        // Handle search
         searchForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const keyword = document.getElementById('keyword').value;
